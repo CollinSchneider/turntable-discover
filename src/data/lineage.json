@@ -1,0 +1,69 @@
+{
+  "column_relationships": [
+    {
+      "source": "Orders.CustomerID",
+      "target": "Customers.CustomerID",
+      "type": "join"
+    },
+    {
+      "source": "OrderDetails.OrderID",
+      "target": "Orders.OrderID",
+      "type": "join"
+    },
+    {
+      "source": "OrderDetails.ProductID",
+      "target": "Products.ProductID",
+      "type": "join"
+    },
+    {
+      "source": "Products.CategoryID",
+      "target": "Categories.CategoryID",
+      "type": "join"
+    },
+    {
+      "source": "Reviews.ProductID",
+      "target": "Products.ProductID",
+      "type": "join"
+    },
+    {
+      "source": "Shipping.OrderID",
+      "target": "Orders.OrderID",
+      "type": "join"
+    },
+    {
+      "source": "Payments.OrderID",
+      "target": "Orders.OrderID",
+      "type": "join"
+    },
+    {
+      "source": "Products.Price",
+      "target": "OrderDetails.UnitPrice",
+      "type": "select"
+    },
+    {
+      "source": "Customers.Country",
+      "target": "Orders.ShippingAddress",
+      "type": "filter"
+    },
+    {
+      "source": "Inventory.QuantityAvailable",
+      "target": "Products.StockQuantity",
+      "type": "filter"
+    },
+    {
+      "source": "Reviews.Rating",
+      "target": "Products.ProductID",
+      "type": "group"
+    },
+    {
+      "source": "Orders.TotalAmount",
+      "target": "OrderDetails.Amount",
+      "type": "select"
+    },
+    {
+      "source": "OrderDetails.Amount",
+      "target": "Payments.Amount",
+      "type": "select"
+    }
+  ]
+}

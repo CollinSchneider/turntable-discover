@@ -1,0 +1,260 @@
+{
+  "tables": {
+    "Customers": {
+      "CustomerID": {
+        "type": "INTEGER",
+        "description": "Primary Key"
+      },
+      "FirstName": {
+        "type": "VARCHAR(255)",
+        "description": "First name of the customer"
+      },
+      "LastName": {
+        "type": "VARCHAR(255)",
+        "description": "Last name of the customer"
+      },
+      "Email": {
+        "type": "VARCHAR(255)",
+        "description": "Email of the customer"
+      },
+      "PasswordHash": {
+        "type": "VARCHAR(255)",
+        "description": "Password hash of the customer"
+      },
+      "Address": {
+        "type": "VARCHAR(255)",
+        "description": "Address of the customer"
+      },
+      "City": {
+        "type": "VARCHAR(255)",
+        "description": "City of the customer"
+      },
+      "State": {
+        "type": "VARCHAR(255)",
+        "description": "State of the customer"
+      },
+      "ZipCode": {
+        "type": "VARCHAR(10)",
+        "description": "Zip code of the customer"
+      },
+      "Country": {
+        "type": "VARCHAR(255)",
+        "description": "Country of the customer"
+      },
+      "Phone": {
+        "type": "VARCHAR(20)",
+        "description": "Phone number of the customer"
+      }
+    },
+    "Products": {
+      "ProductID": {
+        "type": "INTEGER",
+        "description": "Primary Key"
+      },
+      "Name": {
+        "type": "VARCHAR(255)",
+        "description": "Name of the product"
+      },
+      "Description": {
+        "type": "TEXT",
+        "description": "Description of the product"
+      },
+      "Price": {
+        "type": "DECIMAL",
+        "description": null
+      },
+      "StockQuantity": {
+        "type": "INTEGER",
+        "description": "Stock quantity of the product"
+      },
+      "CategoryID": {
+        "type": "INTEGER",
+        "description": "Foreign Key to Categories"
+      }
+    },
+    "Categories": {
+      "CategoryID": {
+        "type": "INTEGER",
+        "description": "Primary Key"
+      },
+      "Name": {
+        "type": "VARCHAR(255)",
+        "description": "Name of the category"
+      },
+      "Description": {
+        "type": "TEXT",
+        "description": "Description of the category"
+      }
+    },
+    "Orders": {
+      "OrderID": {
+        "type": "INTEGER",
+        "description": "Primary Key"
+      },
+      "CustomerID": {
+        "type": "INTEGER",
+        "description": "Foreign Key to Customers"
+      },
+      "OrderDate": {
+        "type": "DATETIME",
+        "description": "Date of the order"
+      },
+      "ShippingAddress": {
+        "type": "VARCHAR(255)",
+        "description": null
+      },
+      "TotalAmount": {
+        "type": "DECIMAL",
+        "description": null
+      }
+    },
+    "OrderDetails": {
+      "OrderDetailID": {
+        "type": "INTEGER",
+        "description": "Primary Key"
+      },
+      "OrderID": {
+        "type": "INTEGER",
+        "description": "Foreign Key to Orders"
+      },
+      "ProductID": {
+        "type": "INTEGER",
+        "description": "Foreign Key to Products"
+      },
+      "Amount": {
+        "type": "DECIMAL",
+        "description": null
+      },
+      "Quantity": {
+        "type": "INTEGER",
+        "description": "Quantity of the product ordered"
+      },
+      "UnitPrice": {
+        "type": "DECIMAL",
+        "description": null
+      }
+    },
+    "Suppliers": {
+      "SupplierID": {
+        "type": "INTEGER",
+        "description": "Primary Key"
+      },
+      "Name": {
+        "type": "VARCHAR(255)",
+        "description": "Name of the supplier"
+      },
+      "ContactName": {
+        "type": "VARCHAR(255)",
+        "description": "Contact name of the supplier"
+      },
+      "Address": {
+        "type": "VARCHAR(255)",
+        "description": "Address of the supplier"
+      },
+      "City": {
+        "type": "VARCHAR(255)",
+        "description": "City of the supplier"
+      },
+      "State": {
+        "type": "VARCHAR(255)",
+        "description": "State of the supplier"
+      },
+      "Country": {
+        "type": "VARCHAR(255)",
+        "description": "Country of the supplier"
+      },
+      "Phone": {
+        "type": "VARCHAR(20)",
+        "description": "Phone number of the supplier"
+      }
+    },
+    "Inventory": {
+      "InventoryID": {
+        "type": "INTEGER",
+        "description": "Primary Key"
+      },
+      "ProductID": {
+        "type": "INTEGER",
+        "description": "Foreign Key to Products"
+      },
+      "QuantityAvailable": {
+        "type": "INTEGER",
+        "description": "Quantity available of the product"
+      },
+      "WarehouseLocation": {
+        "type": "VARCHAR(255)",
+        "description": "Warehouse location of the product"
+      }
+    },
+    "Shipping": {
+      "ShippingID": {
+        "type": "INTEGER",
+        "description": "Primary Key"
+      },
+      "OrderID": {
+        "type": "INTEGER",
+        "description": "Foreign Key to Orders"
+      },
+      "ShippingDate": {
+        "type": "DATETIME",
+        "description": "Shipping date of the order"
+      },
+      "Carrier": {
+        "type": "VARCHAR(255)",
+        "description": "Carrier for the shipping"
+      },
+      "TrackingNumber": {
+        "type": "VARCHAR(255)",
+        "description": "Tracking number of the shipping"
+      }
+    },
+    "Payments": {
+      "PaymentID": {
+        "type": "INTEGER",
+        "description": "Primary Key"
+      },
+      "OrderID": {
+        "type": "INTEGER",
+        "description": "Foreign Key to Orders"
+      },
+      "PaymentDate": {
+        "type": "DATETIME",
+        "description": "Payment date of the order"
+      },
+      "Amount": {
+        "type": "DECIMAL",
+        "description": null
+      },
+      "PaymentMethod": {
+        "type": "VARCHAR(255)",
+        "description": "Payment method of the order"
+      }
+    },
+    "Reviews": {
+      "ReviewID": {
+        "type": "INTEGER",
+        "description": "Primary Key"
+      },
+      "ProductID": {
+        "type": "INTEGER",
+        "description": "Foreign Key to Products"
+      },
+      "CustomerID": {
+        "type": "INTEGER",
+        "description": "Foreign Key to Customers"
+      },
+      "Rating": {
+        "type": "INTEGER",
+        "description": "Rating of the product"
+      },
+      "Comment": {
+        "type": "TEXT",
+        "description": "Comment on the product"
+      },
+      "ReviewDate": {
+        "type": "DATETIME",
+        "description": "Review date of the product"
+      }
+    }
+  }
+}
